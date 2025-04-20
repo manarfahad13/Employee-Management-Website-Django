@@ -1,0 +1,51 @@
+{% extends "students/base.html" %}
+
+{% block body %}
+  <h3 class="text-center m-4">Employee Details</h3>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card bg-light mb-3">
+        <div class="card-header">
+          <i class="fa-solid fa-user fa-lg"></i> Employee Information
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled">
+            <li>Department: {{ employee.department }}</li>
+            <li>Employee Name: {{ employee.employee_name }}</li>
+            <li>Computer Name: {{ employee.computer_name }}</li>
+            <li>CPU Hilti Number: {{ employee.cpu_hilti_number }}</li>
+            <li>SN Number: {{ employee.sn_number_monitor}}</li>
+            <li>Monitor Hilti Number: {{ employee.monitor_hilti_number }}</li>
+            <li>Service Tag: {{ employee.service_tag }}</li>
+            <li>Configuration: {{ employee.configuration }}</li>
+          </ul>
+          <a href="{% url 'edit_employee' employee.id %}" class="btn btn-warning">Edit</a>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+            Delete
+          </button>
+          <!-- Modal - Delete Employee -->
+          <div class="modal" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Are you sure you want to delete this employee?
+                </div>
+                <div class="modal-footer">
+                  <form action="{% url 'delete_employee' employee.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

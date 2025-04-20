@@ -1,0 +1,39 @@
+{% extends "students/base.html" %}
+
+{% block body %}
+<h3 class="text-center m-4">Edit Employee</h3>
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div class="card bg-light mb-3">
+      <div class="card-header">
+        <i class="fa-solid fa-user-edit fa-lg"></i> Edit Employee Information
+      </div>
+      <div class="card-body">
+        <form action="{% url 'update_employee' employee.id %}" method="POST">
+          {% csrf_token %}
+          <table class="table">
+            <tr>
+              <td>{{ form.name.label_tag }}</td>
+              <td>{{ form.name }}</td>
+            </tr>
+            <tr>
+              <td>{{ form.email.label_tag }}</td>
+              <td>{{ form.email }}</td>
+            </tr>
+            <tr>
+              <td>{{ form.department.label_tag }}</td>
+              <td>{{ form.department }}</td>
+            </tr>
+            <tr>
+              <td>{{ form.position.label_tag }}</td>
+              <td>{{ form.position }}</td>
+            </tr>
+          </table>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <a href="{% url 'employee_list' location='Khobar' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

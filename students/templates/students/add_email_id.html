@@ -1,0 +1,70 @@
+{% extends "students/base.html" %} 
+
+{% block body %}
+  <h3 class="text-center m-4">Add Email ID</h3>
+  
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card bg-light mb-3">
+        <div class="card-header">
+          <i class="fa-solid fa-envelope fa-lg"></i> Email ID Registration
+        </div>
+        <div class="card-body">
+          <form action="{% url 'add_email_id' %}" method="POST">
+            {% csrf_token %}
+            
+            <!-- Display Validation Errors -->
+            {% if form.errors %}
+              <div class="alert alert-danger">
+                <ul>
+                  {% for field in form %}
+                    {% for error in field.errors %}
+                      <li>{{ error }}</li>
+                    {% endfor %}
+                  {% endfor %}
+                  {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+            
+            <table class="table">
+              <tr>
+                <td>{{ form.employee_name.label_tag }}</td>
+                <td>{{ form.employee_name }}</td>
+              </tr>
+              <tr>
+                <td>{{ form.email_id.label_tag }}</td>
+                <td>{{ form.email_id }}</td>
+              </tr>
+              <tr>
+                <td>{{ form.department.label_tag }}</td>
+                <td>{{ form.department }}</td>
+              </tr>
+              <tr>
+                <td>{{ form.position.label_tag }}</td>
+                <td>{{ form.position }}</td>
+              </tr>
+              <tr>
+                <td>{{ form.old_pass.label_tag }}</td>
+                <td>{{ form.old_pass }}</td>
+              </tr>
+              <tr>
+                <td>{{ form.new_pass.label_tag }}</td>
+                <td>{{ form.new_pass }}</td>
+              </tr>
+              <tr>
+                <td>{{ form.branch.label_tag }}</td>
+                <td>{{ form.branch }}</td>
+              </tr>
+            </table>
+            
+            <button type="submit" class="btn btn-primary">Add</button>
+            <a href="{% url 'email_id_list' 'Khobar' %}" class="btn btn-secondary">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %} 

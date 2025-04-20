@@ -1,0 +1,123 @@
+{% extends "students/base.html" %}
+
+{% block body %}
+<div class="dashboard-container container mt-4">
+  <!-- Page Header -->
+  <div class="row mb-4">
+    <div class="col text-center">
+      <h1 class="text-white">Employee Management Dashboard</h1>
+      <p class="text-secondary">An overview of key metrics and statistics</p>
+    </div>
+  </div>
+
+  <!-- KPI Section -->
+  <div class="row text-white text-center d-flex justify-content-center">
+    <div class="col-md-2 col-sm-6 mb-3">
+        <div class="card" style="background-color: rgba(240, 31, 31, 0.85);">
+          <div class="card-body">
+            <h5 class="card-title">Employees</h5>
+            <p class="card-text h4">{{ total_employees }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-2 col-sm-6 mb-3">
+        <div class="card" style="background-color: rgba(76, 174, 240, 0.91);">
+          <div class="card-body">
+            <h5 class="card-title">Devices</h5>
+            <p class="card-text h4">{{ total_devices }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-2 col-sm-6 mb-3">
+      
+        <div class="card" style="background-color: rgba(87, 204, 149, 0.93);">
+          <div class="card-body">
+            <h5 class="card-title">Emails</h5>
+            <p class="card-text h4">{{ total_emails }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-2 col-sm-6 mb-3">
+     
+        <div class="card" style="background-color: rgba(240, 233, 132, 0.92);">
+          <div class="card-body">
+            <h5 class="card-title">Servers</h5>
+            <p class="card-text h4">{{ total_servers }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    
+
+  <!-- Chart Section -->
+  <div class="row mt-5">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card bg-dark text-white shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">Entity Distribution</h5>
+          <div class="chart-container" style="height: 400px;">
+            <canvas id="myPieChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var ctx = document.getElementById('myPieChart').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Employees', 'Devices', 'Emails', 'Servers'],
+        datasets: [{
+          label: 'Count of Entities',
+          data: [
+            {{ total_employees }},
+            {{ total_devices }},
+            {{ total_emails }},
+            {{ total_servers }},
+
+          ],
+          backgroundColor: [
+            'rgba(240, 31, 31, 0.85)',
+            'rgba(76, 174, 240, 0.91)',
+            'rgba(87, 204, 149, 0.93)',
+            'rgba(240, 233, 132, 0.92)'
+          ],
+          borderColor: 'rgba(0, 0, 0, 0.1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color: '#ffffff'
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(tooltipItem) {
+                return tooltipItem.label + ': ' + tooltipItem.raw.toFixed(0);
+              }
+            }
+          }
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

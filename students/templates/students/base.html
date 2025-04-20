@@ -1,0 +1,195 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Employee Management System{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+  <style>
+    /* General Page Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff;
+      color: #333;
+      margin-left: 220px; /* Make space for the sidebar */
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: #fff;
+      border-right: 1px solid rgb(150, 181, 240); /* Soft Lilac border */
+      width: 220px;
+      z-index: 1000;
+      padding-top: 20px;
+    }
+
+    .sidebar .logo {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 30px; /* Increased margin to add space below the title */
+    }
+
+    /* Add vertical line after title */
+    .vertical-line {
+      height: 50px;
+      border-left: 2px solid rgb(150, 181, 240); /* Vertical line color */
+      margin-left: 15px; /* Space between the logo and the line */
+      margin-right: 15px;
+    }
+
+    .sidebar .menu-links {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar .menu-links .nav-link {
+      color: #333;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .sidebar .menu-links .nav-link:hover {
+      color: #fff;
+      background-color: rgb(150, 181, 240);
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #fff;
+      color: #333;
+      border-top: 1px solid rgb(150, 181, 240);
+      padding: 15px;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    /* Table Styling */
+    table.table {
+      background-color: #fff;
+      color: #333;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 20px auto;
+    }
+
+    table.table th,
+    table.table td {
+      border: 1px solid rgb(150, 181, 240);
+      padding: 10px;
+      text-align: center;
+    }
+
+    table.table th {
+      background-color: rgb(150, 181, 240);
+      color: #fff;
+    }
+
+    /* Alerts */
+    .alert-success {
+      background-color: rgb(150, 181, 240);
+      color: #fff;
+      border: 1px solid rgb(150, 181, 240);
+    }
+  </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="logo">
+      <span>Employee Management Website</span>
+    </div>
+
+    <!-- Vertical line between title and button -->
+    <div class="vertical-line"></div>
+
+    <ul class="menu-links">
+      <!-- Main Page Button with extra space -->
+      <li class="nav-item" style="margin-top: 30px;"> <!-- Added margin for more space -->
+        <a href="{% url 'dashboard' %}" class="nav-link">
+          <i></i> Main Page
+        </a>
+      </li>
+
+      <!-- Other Links -->
+      <li class="nav-item">
+        <a href="{% url 'employee_list' %}" class="nav-link">
+          Employee Info
+        </a>
+      </li>
+
+      <!-- Dropdown for Emails Info -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuEmailButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Emails Info
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuEmailButton">
+          <li><a class="dropdown-item" href="{% url 'email_id_list' 'Khobar' %}">Khobar</a></li>
+          <li><a class="dropdown-item" href="{% url 'email_id_list' 'Riyadh' %}">Riyadh</a></li>
+          <li><a class="dropdown-item" href="{% url 'email_id_list' 'Jeddah' %}">Jeddah</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown for Devices Info -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuDeviceButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Devices Info
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDeviceButton">
+          <li><a class="dropdown-item" href="{% url 'device_list_branch' 'Khobar' %}">Khobar</a></li>
+          <li><a class="dropdown-item" href="{% url 'device_list_branch' 'Riyadh' %}">Riyadh</a></li>
+          <li><a class="dropdown-item" href="{% url 'device_list_branch' 'Jeddah' %}">Jeddah</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown for Server Info -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuServerButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Server Info
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuServerButton">
+          <li><a class="dropdown-item" href="{% url 'server_details_branch' 'Khobar' %}">Khobar</a></li>
+          <li><a class="dropdown-item" href="{% url 'server_details_branch' 'Riyadh' %}">Riyadh</a></li>
+          <li><a class="dropdown-item" href="{% url 'server_details_branch' 'Jeddah' %}">Jeddah</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div class="container mt-4">
+    {% if messages %}
+      <div class="alert alert-success" role="alert">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% block body %}
+      <!-- Main content goes here -->
+    {% endblock %}
+  </div>
+
+  <footer>
+    © All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+</body>
+
+</html>
