@@ -13,7 +13,17 @@ A web-based Employee Management System built with __Django__ , The system allows
 
 ![14 04 2025_15 06 08_REC](https://github.com/user-attachments/assets/f2874fa6-aa13-4a33-a394-845b5bacaeb1)
 
+
+![add emp](https://github.com/user-attachments/assets/8f081954-4e38-405a-ac8b-6850f90efe25)
+
+
+![delete empl](https://github.com/user-attachments/assets/9a5533fa-5c7c-4abf-9d36-d92bcd3795a8)
+
+
 - Emails Management: Add and manage employee email addresses.
+![emails empty](https://github.com/user-attachments/assets/46f80a14-ef28-478e-9bab-1fefa19c509a)
+
+
 
 ![emails](https://github.com/user-attachments/assets/2742df16-b473-43c9-9500-6fff909b2023)
 
@@ -24,15 +34,37 @@ A web-based Employee Management System built with __Django__ , The system allows
 ![14 04 2025_15 44 55_REC](https://github.com/user-attachments/assets/a4e79414-b2b5-4498-80b2-6f6ac1882e45)
 
 
+
+
+
+
+![Capture](https://github.com/user-attachments/assets/d79fffe8-c5b8-493e-b329-0e7c2dd815a2)
+
+
+
+![dev up](https://github.com/user-attachments/assets/c5e1ffe0-66e5-40ed-b379-6917f66b967b)
+
+
+
+
+![delete message](https://github.com/user-attachments/assets/4facc2eb-9b56-4356-8839-30e77e9c7242)
+
 -  Server Management: Add and manage server information across branches.
 
 ![14 04 2025_15 45 14_REC](https://github.com/user-attachments/assets/41ee131d-e1f0-4448-b80a-207bca7cb92f)
+
+
+![add ser](https://github.com/user-attachments/assets/f503a533-351e-4fd6-ad38-f5846acd4dd1)
+
+
+![up ser](https://github.com/user-attachments/assets/8ebf58b1-32be-4780-8383-bbf7b4b025cd)
+
 
 -  Branch Filtering: Easily view employees and devices filtered by branch (Khobar, Riyadh, Jeddah).
 
   ![branches](https://github.com/user-attachments/assets/695abf1c-5692-4776-b450-34bc18413763)
 
--   User-Friendly Interface: Clean and responsive design using Bootstrap.
+
 
 ## Technologies Used:
 - Python 3
