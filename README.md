@@ -13,6 +13,10 @@ A web-based Employee Management System built with __Django__ , The system allows
 
 ![14 04 2025_15 06 08_REC](https://github.com/user-attachments/assets/f2874fa6-aa13-4a33-a394-845b5bacaeb1)
 
+- Emails Management: Add and manage employee email addresses.
+
+![emails](https://github.com/user-attachments/assets/2742df16-b473-43c9-9500-6fff909b2023)
+
 
 
 - Device Management: Manage employee devices (like laptops, desktops, etc.).
