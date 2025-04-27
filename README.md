@@ -1,11 +1,11 @@
 # Employee Management System
 
-The system allows users to manage employee data and their associated devices, printers, telephone extensions, and servers across multiple branches.
+A web-based Employee Management System built with __Django__ , The system allows users to manage employee data and their associated devices, Emails , and servers across multiple branches.
 
  
 ## Features
 
-- Dashboard: Quick overview of the number of employees, devices, printers, and servers.
+- Dashboard: Quick overview of the number of employees, devices, Emails, and servers.
 
 ![new-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/c2df9449-90be-4ca3-a97d-d077f3f3e38f)
 
@@ -19,16 +19,15 @@ The system allows users to manage employee data and their associated devices, pr
 
 ![14 04 2025_15 44 55_REC](https://github.com/user-attachments/assets/a4e79414-b2b5-4498-80b2-6f6ac1882e45)
 
--  Printer Management: Manage printer details per branch.
 
-  
 -  Server Management: Add and manage server information across branches.
 
 ![14 04 2025_15 45 14_REC](https://github.com/user-attachments/assets/41ee131d-e1f0-4448-b80a-207bca7cb92f)
 
 -  Branch Filtering: Easily view employees and devices filtered by branch (Khobar, Riyadh, Jeddah).
 
-  
+  ![branches](https://github.com/user-attachments/assets/695abf1c-5692-4776-b450-34bc18413763)
+
 -   User-Friendly Interface: Clean and responsive design using Bootstrap.
 
 ## Technologies Used:
