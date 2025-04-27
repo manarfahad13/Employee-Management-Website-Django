@@ -1,4 +1,4 @@
-# Employee Management Website by using Django
+# Employee Management Website
 
 A web-based Employee Management System built with __Django__ , The system allows users to manage employee data and their associated devices, Emails , and servers across multiple branches.
 
